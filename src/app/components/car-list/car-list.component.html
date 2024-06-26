@@ -1,1 +1,36 @@
-<p>car-list works!</p>
+<h1>Apex Cars</h1>
+<div class="image-container">
+    <img src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
+  </div>
+<div class="contentt" *ngIf="carList">
+<div class="content" *ngFor="let c of carList">
+   
+<mat-card class="example-card">
+    <mat-card-header>
+       
+        <mat-card-title>{{c.make}}</mat-card-title>
+        <mat-card-subtitle>{{c.model}}</mat-card-subtitle>
+    </mat-card-header>
+    <a [routerLink]="['/car', c.carId]">
+    <img mat-card-image src={{c.image}}>
+</a>
+    <mat-card-content>
+        <p>
+            COLOR: {{c.color}}
+            
+        </p>
+        <p>
+            City: {{c.city}}, {{c.state}}
+            
+        </p>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-button>PRICE: {{c.price}}</button>
+        
+        <!-- <button mat-button> {{c.u}}</button> -->
+    </mat-card-actions>
+</mat-card>
+
+</div>
+
+</div>

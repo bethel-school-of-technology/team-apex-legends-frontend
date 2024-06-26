@@ -15,3 +15,33 @@
   top: 0;
   z-index: 1;
 }
+
+*{
+  background-color: #DCD9CD;
+}
+img {
+  width: 70px;
+  height: 60px;
+  margin-left: 15px;
+}
+
+a {
+  color: aliceblue;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+  
+}
+
+mat-toolbar{
+  font-size: 1.3em;
+}
+
+
+
+
+
+

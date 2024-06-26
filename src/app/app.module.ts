@@ -22,6 +22,8 @@ import { NavigationPageComponent } from './navigation-page/navigation-page.compo
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
+import { DetailComponent } from './components/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { MatListModule } from '@angular/material/list';
     UserEditComponent,
     AboutComponent,
     DashboardComponent,
-    NavigationPageComponent
+    NavigationPageComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,8 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
