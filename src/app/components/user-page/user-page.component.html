@@ -1,1 +1,40 @@
-<p>user-page works!</p>
+<div class="contentt" *ngIf="carList">
+    <div class="content" *ngFor="let c of carList">
+       
+    <mat-card class="example-card">
+        <mat-card-header>
+           
+            <mat-card-title>{{c.make}}</mat-card-title>
+            <mat-card-subtitle>{{c.model}}</mat-card-subtitle>
+        </mat-card-header>
+        <a [routerLink]="['/car', c.carId]">
+        <img mat-card-image src={{c.imgUrl}}>
+    </a>
+        <mat-card-content>
+            <p>
+                COLOR: {{c.color}}
+                
+            </p>
+            <p>
+                City: {{c.city}}, {{c.state}}
+                
+            </p>
+            
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>PRICE: {{c.price}}</button> 
+           
+        
+            <!-- <button mat-button> {{c.u}}</button> -->
+        </mat-card-actions>
+        <div class="content3" *ngIf="idcurrent === id">
+ 
+            <button mat-raised-button color="accent" [routerLink]="['/car/edit', c.carId]" class="btn" id="h">Edit</button>
+            <button mat-raised-button color="warn" (click)="deleteCar(c.carId)" class="btn" id="i">Delete</button>
+     
+          </div>
+    </mat-card>
+    
+    </div>
+    
+    </div>

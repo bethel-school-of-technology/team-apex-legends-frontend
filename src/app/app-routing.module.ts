@@ -38,7 +38,7 @@ const routes: Routes = [
     component: CarNewComponent
   },
   {
-    path: "car/:user",
+    path: "user/id/:user",
     component: UserPageComponent
   },
   {

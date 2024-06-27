@@ -1,1 +1,49 @@
-<p>edit-car works!</p>
+<div class="form">
+    <div class="image-container">
+      <img mat-card-image src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
+    </div>
+    <h1>Edit Car Listing</h1>
+    <form class="example-form" #form="ngForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Make</mat-label>
+        <input matInput placeholder="Make" [(ngModel)]="thisCar.make" name="make">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Model</mat-label>
+        <input matInput placeholder="Model" [(ngModel)]="thisCar.model" name="model">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Year</mat-label>
+        <input matInput type="number" placeholder="Year" [(ngModel)]="thisCar.year" name="year">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Color</mat-label>
+        <input matInput placeholder="Color" [(ngModel)]="thisCar.color" name="color">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Miles</mat-label>
+        <input matInput type="number" placeholder="Miles" [(ngModel)]="thisCar.miles" name="miles">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="City" [(ngModel)]="thisCar.city" name="city">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>State</mat-label>
+        <input matInput placeholder="State" [(ngModel)]="thisCar.state" name="state">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Price</mat-label>
+        <input matInput type="number" placeholder="Price" [(ngModel)]="thisCar.price" name="price">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Image URL</mat-label>
+        <input matInput placeholder="Image URL" [(ngModel)]="thisCar.imgUrl" name="imgUrl">
+      </mat-form-field>
+  
+      <div class="hi">
+        <button mat-flat-button color="primary" routerLink="/car">Back</button>
+        <button mat-flat-button color="primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>

@@ -19,16 +19,26 @@ export class UserService {
 }
 
 
-login(username: string, password: string) {
-  let queryParams = new HttpParams();
-  queryParams = queryParams.append('username', username);
-  queryParams = queryParams.append('password', password);
+// login(username: string, password: string) {
+//   let queryParams = new HttpParams();
+//   queryParams = queryParams.append('username', username);
+//   queryParams = queryParams.append('password', password);
 
-  return this.http.get<{ token: string }>(`${this.baseURL}/login`, { params: queryParams })
-    .pipe(tap((response) => {
-      console.log('Response from Jonathan:', response); // Log the response to see its structure
-      localStorage.setItem('myCarsToken', response.token);
-    }));
+//   return this.http.get<any>(`${this.baseURL}/login`, { params: queryParams })
+//   .pipe(tap((response: any) => {
+//       console.log('Response from Jonathan:', response); // Log the response to see its structure
+//       localStorage.setItem('myCarsToken', response.token);
+//     }));
+// }
+
+login(username: string, password: string) {
+  return this.http.post<any>(`${this.baseURL}/login`, { username, password })
+    .pipe(
+      tap((response: any) => {
+        console.log('Login response:', response);
+        localStorage.setItem('myCarsToken', response.token);
+      })
+    );
 }
 
 
@@ -37,27 +47,27 @@ gettoken(): any {
   return token;
 }
 
-getUserFromToken(): any {
-  const token = localStorage.getItem('myCarsToken');
+// getUserFromToken(): any {
+//   const token = localStorage.getItem('myCarsToken');
 
-  if (token && !this.jwtHelper.isTokenExpired(token)) {
-    const decodedToken = this.jwtHelper.decodeToken(token);
-    const user = decodedToken
-    console.log(user);
-    return user; 
-  }
+//   if (token && !this.jwtHelper.isTokenExpired(token)) {
+//     const decodedToken = this.jwtHelper.decodeToken(token);
+//     const user = decodedToken
+//     console.log(user);
+//     return user; 
+//   }
 
-  return null;
-}
+//   return null;
+// }
 
 
-getUsernameFromToken(): string | null {
+getUserIdFromToken(): number | null {
   const token = localStorage.getItem('myCarsToken');
   if (token) {
-  
     const tokenPayload = JSON.parse(atob(token.split('.')[1]));
-    console.log(tokenPayload)
-    return tokenPayload || null;
+    if (tokenPayload && typeof tokenPayload.userId === 'number') {
+      return tokenPayload.userId;
+    }
   }
   return null;
 }
@@ -71,8 +81,30 @@ refreshPage() {
 }
 
 
+isLoggedIn(): boolean {
 
+  return !!localStorage.getItem('myCarsToken');
+  
+}
 
+logout(): void {
+ 
+  localStorage.removeItem('myCarsToken');
+}
+
+// getUserFromToken(): any {
+//   const token = localStorage.getItem('myTweetsToken');
+
+//   if (token && !this.jwtHelper.isTokenExpired(token)) {
+//     const decodedToken = this.jwtHelper.decodeToken(token);
+//     console.log(decodedToken);
+//     const user = decodedToken.username;
+//     console.log(user);
+//     return user; 
+//   }
+
+//   return null;
+// }
 
 
 }

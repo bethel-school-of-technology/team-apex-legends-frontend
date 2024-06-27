@@ -20,8 +20,8 @@ export class CarService {
     return this.http.get<Car[]>(this.baseURL);
 }
 
-getUserCars(UserId: string): Observable<Car[]> {
-  return this.http.get<Car[]>(this.baseURL + UserId);
+getUserCars(UserId: number): Observable<Car[]> {
+  return this.http.get<Car[]>(this.baseURL + "/byUserId/" + UserId);
 }
 
 createCar(newCar: Car) {
@@ -30,14 +30,9 @@ createCar(newCar: Car) {
 }
 return this.http.post(this.baseURL, newCar, { headers: reqHeaders });
 }
-updateCar(updatedCar: Car): Observable<Car> {
-  let reqHeaders = {
-    Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`
-  }
-  return this.http.put(this.baseURL + "/" + updatedCar.carId, updatedCar, { headers: reqHeaders });
-}
 
-deleteTweet(hello: string) {
+
+deleteCar(hello: string) {
   let reqHeaders = {
     Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`
   }
@@ -45,5 +40,12 @@ deleteTweet(hello: string) {
 }
 getCar(CarId: string) {
   return this.http.get<Car>(this.baseURL + "/" + CarId)
+}
+
+updateCar(num: string, updatedCar: Car): Observable<Car> {
+  let reqHeaders = {
+    Authorization: `Bearer ${localStorage.getItem(this.tokenKey)}`
+  }
+  return this.http.put(this.baseURL + "/" + updatedCar.carId, updatedCar, { headers: reqHeaders });
 }
 }

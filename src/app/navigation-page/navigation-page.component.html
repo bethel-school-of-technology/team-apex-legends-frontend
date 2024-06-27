@@ -1,13 +1,18 @@
 <mat-toolbar color="primary">
-  <a routerlink mat-button href="/car">Apex Cars</a>
-  <img src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg">
-  <div class="spacer"> </div>
+  <a routerLink="/car" mat-button>Apex Cars</a>
+  <img src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image">
 
-  <a routerlink mat-button href="/car">Home</a>
-  <a routerlink mat-button href="/about">About</a>
-  <a routerlink mat-button href="/signin">Sign In</a>
-  <a routerlink mat-button href="/signup">Sign Up</a>
+  <div class="spacer"></div>
 
+  <a routerLink="/car" mat-button>Home</a>
+  <a routerLink="/about" mat-button>About</a>
+  <a routerLink="/signin" mat-button>Sign In</a>
+  <a routerLink="/signup" mat-button>Sign Up</a>
+
+  <div class="content" *ngIf="isAuthenticated">
+    <a routerlink mat-button [routerLink]="['/user/id', this.user?.id]">Welcome {{user?.username}}!</a>
+    <button mat-button (click)="onLogout()">Log out</button>
+  </div>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

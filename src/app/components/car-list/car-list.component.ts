@@ -18,7 +18,7 @@ export class CarListComponent implements OnInit{
 
     this.carService.getAllCars().subscribe(tweets => {
       this.carList = tweets;
-      console.log(this.carList)
+      // console.log(this.carList)
     });
    
   }

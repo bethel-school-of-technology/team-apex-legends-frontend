@@ -1,47 +1,42 @@
-.sidenav-container {
-  height: 100%;
-}
+/* Set background color and text color for mat-toolbar with primary color */
 
-.sidenav {
-  width: 200px;
-}
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
 
 .mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  background-color: #1A237E; /* Adjust to your primary color */
+  color: white; /* Text color for toolbar items */
 }
 
-*{
-  background-color: #DCD9CD;
-}
+/* Adjust specific styles for elements inside mat-toolbar */
 img {
   width: 70px;
   height: 60px;
   margin-left: 15px;
 }
 
-a {
-  color: aliceblue;
+a.mat-button {
+  color: white; /* Text color for links in mat-button style */
   text-decoration: none;
   margin-right: 20px;
 }
 
 .spacer {
   flex: 1 1 auto;
-  
 }
 
-mat-toolbar{
-  font-size: 1.3em;
+.content {
+  display: flex;
+  align-items: center; /* Center items vertically */
 }
 
+.content a.mat-button {
+  margin-right: 10px; /* Adjust spacing between buttons */
+}
 
+button.mat-button {
+  color: white; /* Text color for buttons */
+}
 
-
-
-
+a{
+  font-weight: 550;
+}

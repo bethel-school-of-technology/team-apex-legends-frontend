@@ -1,0 +1,73 @@
+.form {
+    display:flex;
+    
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+    /* gap: 10px 20px; */
+}
+
+.align {
+    display:flex;
+    align-items: center;
+    margin: 20px;
+    gap: 30px;
+    
+}
+
+h1{
+    margin-top: 100px;
+}
+
+.hi{
+    text-align: center;
+    margin: 20px;
+}
+
+button{
+    font-size: 1.1em;
+    margin: 10px;
+    color: rgba(240, 248, 255, 0);
+
+}
+
+img {
+    text-align: center;
+    width: 200px;
+}
+.img {
+    text-align: center;
+}
+
+.example-form {
+    display:flex;
+    
+    align-items:center;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+  
+  .example-full-width {
+    
+  text-align: center;
+    
+    
+  }
+
+  .cool-image {
+    width: auto;
+    max-width: 100%; /* Ensure the image stays within container */
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    border-radius: 10px; /* Optional: rounded corners */
+    margin-bottom: 100px;
+  }
+
+  .image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh; /* Adjust the height of the image container */
+    overflow: hidden; /* Prevents image overflow */
+  }
