@@ -1,25 +1,23 @@
 <div class="form">
     <h1>Sign Up</h1>
 
-    <form class="example-form" #form="ngForm" (ngSubmit)="signUp()">
+    <form class="example-form" #form="ngForm" (ngSubmit)="signUp()" novalidate>
         <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
-            <input matInput placeholder="Username" [(ngModel)]="newUser.username" name="name">
+            <input matInput placeholder="Username" [(ngModel)]="newUser.username" name="username" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" [(ngModel)]="newUser.password"
-                name="description">
+            <input matInput placeholder="Password" [(ngModel)]="newUser.password" name="password" required>
         </mat-form-field>
-      
 
         <div class="hi">
             <button mat-flat-button color="primary" routerLink="/car">Back</button>
-            <button mat-flat-button color="primary" type="submit">Submit</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
         </div>
     </form>
 </div>
 
 <div class="image-container">
-    <img mat-card-image src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
+    <img mat-card-image src="assets/img/PNG image.jpeg" alt="Cool Image" class="cool-image">
 </div>

@@ -1,44 +1,23 @@
-<!-- <div class="form">
-    <form (ngSubmit)="signin()">
-        <h1>LOGIN</h1>
-        <span>username  </span>
-        <input placeholder="Enter username" type="text" name="username" [(ngModel)]="username">
-        <br><br>
-        <span>Password  </span>
-        <input placeholder="Enter password" type="password" name="password" [(ngModel)]="password">
-        <br><br>
-        
-        <button mat-flat-button color="primary" type="submit">Submit</button>
-    </form>
-    </div>
-  
-  <div class="image-container">
-    <img mat-card-image src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
-  </div> -->
-  
-
-  <div class="form">
+<div class="form">
     <h1>Sign In</h1>
 
-    <form class="example-form" #form="ngForm" (ngSubmit)="signin()">
+    <form class="example-form" #form="ngForm" (ngSubmit)="signin()" novalidate>
         <mat-form-field appearance="outline">
             <mat-label>Username</mat-label>
-            <input matInput placeholder="Username" [(ngModel)]="username" name="name">
+            <input matInput placeholder="Username" [(ngModel)]="username" name="username" required>
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" [(ngModel)]="password"
-                name="description">
+            <input matInput placeholder="Password" [(ngModel)]="password" name="password" required>
         </mat-form-field>
-      
 
         <div class="hi">
             <button mat-flat-button color="primary" routerLink="/car">Back</button>
-            <button mat-flat-button color="primary" type="submit">Submit</button>
+            <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid">Submit</button>
         </div>
     </form>
 </div>
 
 <div class="image-container">
-    <img mat-card-image src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
+    <img mat-card-image src="assets/img/PNG image.jpeg" alt="Cool Image" class="cool-image">
 </div>

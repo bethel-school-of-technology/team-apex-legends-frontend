@@ -27,7 +27,8 @@ import { DetailComponent } from './components/detail/detail.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
-
+import { SearchComponent } from './components/search/search.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { MatInputModule } from '@angular/material/input';
     AboutComponent,
     DashboardComponent,
     NavigationPageComponent,
-    DetailComponent
+    DetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +62,8 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule, 
     MatFormFieldModule,
     FormsModule,
-    MatInputModule
+    MatInputModule,
+    MatButtonToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

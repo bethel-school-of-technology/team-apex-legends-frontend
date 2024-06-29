@@ -22,13 +22,14 @@ export class EditCarComponent implements OnInit{
     this.carService.getCar(this.id).subscribe(result => {
       this.thisCar = result;
       console.log('Fetched Car:', this.thisCar);
-      this.cdRef.detectChanges(); // Ensure change detection is triggered
+      this.cdRef.detectChanges(); 
     });
   }
 
   onSubmit() {
     this.carService.updateCar(this.id, this.thisCar).subscribe(edittedCar => {
       console.log('Updated Car:', edittedCar);
+      window.alert("Car Edited Successfully");
       this.router.navigateByUrl("/car");
     });
   }

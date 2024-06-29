@@ -13,9 +13,9 @@ export class Car {
     price?: number;
     imgUrl?: string;
     userId?: number;
+    description?: string;
 
-
-    constructor(carId?: string, make?: string, model?: string, year?: string, color?: string, miles?: string, city?: string, state?: string, price?: number, imgUrl?: string, userId?: number) {
+    constructor(carId?: string, make?: string, model?: string, year?: string, color?: string, miles?: string, city?: string, state?: string, price?: number, imgUrl?: string, userId?: number, description?: string) {
             this.make = make;
         this.carId = carId;
         this.model = model;
@@ -27,7 +27,7 @@ export class Car {
         this.imgUrl = imgUrl;
         this.userId = userId;
         this.miles = miles;
-
+        this.description = description;
 
     }
 }

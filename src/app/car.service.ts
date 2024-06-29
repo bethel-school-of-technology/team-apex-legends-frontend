@@ -48,4 +48,9 @@ updateCar(num: string, updatedCar: Car): Observable<Car> {
   }
   return this.http.put(this.baseURL + "/" + updatedCar.carId, updatedCar, { headers: reqHeaders });
 }
+
+searchCoffee(searchText: string): Observable<Car[]> {
+  return this.http.get<Car[]>(this.baseURL + "?q=" + searchText);
+}
+
 }

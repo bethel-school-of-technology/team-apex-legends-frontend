@@ -1,21 +1,29 @@
 <div class="container">
-    <mat-card class="detail-card">
-      <mat-card-header>
-        
-        <mat-card-title>{{ thisCar.make }}</mat-card-title>
-        <mat-card-subtitle>{{ thisCar.model }}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image [src]="thisCar.imgUrl" alt="{{ thisCar.make }} {{ thisCar.model }}">
-      <mat-card-content>
-        <p><strong>Color:</strong> {{ thisCar.color }}</p>
-        <p><strong>City:</strong> {{ thisCar.city }}, {{ thisCar.state }}</p>
-        <p><strong>Year:</strong> {{ thisCar.year }}</p>
-        <p><strong>Miles:</strong> {{ thisCar.miles }}</p>
-        <p><strong>Price:</strong> {{ thisCar.price }}</p>  
-      </mat-card-content>
-      <mat-card-actions>
-        <a [routerLink]="['/user/id', this.user?.id]">{{this.user?.username}}</a>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-<!-- <a [routerLink]="['/user/id', this.user?.id]"{{ this.user?.username }}></a> -->
+  <h1>Car Details</h1>
+  <mat-card class="detail-card">
+    <div class="card-content-wrapper">
+      <img mat-card-image [src]="thisCar.imgUrl" alt="{{ thisCar.make }} {{ thisCar.model }}" class="car-image">
+      <div class="car-details">
+        <mat-card-header>
+          <mat-card-title>{{ thisCar.make }}</mat-card-title>
+          <mat-card-subtitle>{{ thisCar.model }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Color:</strong> {{ thisCar.color }}</p>
+          <p><strong>City:</strong> {{ thisCar.city }}</p>
+          <p><strong>State:</strong> {{ thisCar.state }}</p>
+          <p><strong>Year:</strong> {{ thisCar.year }}</p>
+          <p><strong>Miles:</strong> {{ thisCar.miles }}</p>
+          <button mat-button color="primary">PRICE: {{thisCar.price}}</button>
+        </mat-card-content>
+        <mat-card-actions>
+          <a class="styled-link" [routerLink]="['/user/id', this.user?.id]">Username: {{ this.user?.username }}</a>
+        </mat-card-actions>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<h3>Description</h3>
+<div class="description-container">
+  <p class="description">{{ thisCar.description }}</p>
+</div>

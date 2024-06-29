@@ -18,7 +18,14 @@ export class SignInComponent implements OnInit{
 
   constructor(private userService: UserService, private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    const navigateTo = localStorage.getItem('navigateTo');
+    if (navigateTo) {
+      localStorage.removeItem('navigateTo');
+      setTimeout(() => {
+        this.router.navigateByUrl(navigateTo);
+      }, 100);
+    }
   }
 
   // signin() {
@@ -41,12 +48,34 @@ export class SignInComponent implements OnInit{
   //   });
   // }
 
+  // signin() {
+  //   this.userService.login(this.username, this.password).subscribe(
+  //     (response: any) => {
+  //       console.log('Login response:', response);
+  //       // window.alert("Login Successful");
+  //       this.refreshPage();
+  //       setTimeout(() => {
+  //         this.router.navigateByUrl('/car');
+  //       }, 2000);
+  //       // Optionally, you can redirect to another route upon successful login
+        
+  //     },
+  //     (error: any) => {
+  //       console.log('Login error:', error);
+  //       window.alert('Unsuccessful Login');
+  //     }
+  //   );
+  // }
+  // refreshPage() {
+  //   window.location.reload();
+  // }
   signin() {
     this.userService.login(this.username, this.password).subscribe(
       (response: any) => {
         console.log('Login response:', response);
-        // Optionally, you can redirect to another route upon successful login
-        this.router.navigateByUrl('/car');
+        window.alert('Successful Login');
+        localStorage.setItem('navigateTo', '/car');
+        window.location.reload();
       },
       (error: any) => {
         console.log('Login error:', error);
@@ -54,6 +83,4 @@ export class SignInComponent implements OnInit{
       }
     );
   }
-
-  
 }

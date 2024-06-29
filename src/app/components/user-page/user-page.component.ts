@@ -16,6 +16,7 @@ export class UserPageComponent implements OnInit{
   id: number | null = null;
   carList: Car[] = [];
   newUser: User = new User();
+  loggedoutuser: User = new User();
   constructor(private carService: CarService, private actRoute: ActivatedRoute, private router: Router, private userService: UserService) { }
 
 
@@ -27,6 +28,10 @@ export class UserPageComponent implements OnInit{
       this.carList = product;
       // console.log(this.carList);
      
+    });
+    this.userService.getUserById(this.id).subscribe((result) => {
+      this.loggedoutuser = result;
+      // console.log(this.newUser); 
     });
     this.idcurrent = this.userService.getUserIdFromToken();
     console.log(this.idcurrent);

@@ -14,8 +14,8 @@ import { User } from '../models/user';
 })
 export class NavigationPageComponent implements OnInit{
 
-  currentUser: User | null = null; // Assuming User is a model with properties
-  id: number | null = null; // Assuming id is a string representing user ID
+  currentUser: User | null = null; 
+  id: number | null = null; 
   isAuthenticated: boolean = false;
   user?: User;
   isHandset$: Observable<boolean>;

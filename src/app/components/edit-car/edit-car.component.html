@@ -1,6 +1,6 @@
 <div class="form">
     <div class="image-container">
-      <img mat-card-image src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
+      <img mat-card-image src="assets/img/PNG image.jpeg" alt="Cool Image" class="cool-image">
     </div>
     <h1>Edit Car Listing</h1>
     <form class="example-form" #form="ngForm" (ngSubmit)="onSubmit()">
@@ -39,6 +39,10 @@
       <mat-form-field appearance="outline">
         <mat-label>Image URL</mat-label>
         <input matInput placeholder="Image URL" [(ngModel)]="thisCar.imgUrl" name="imgUrl">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput placeholder="Description" [(ngModel)]="thisCar.description" name="description">
       </mat-form-field>
   
       <div class="hi">

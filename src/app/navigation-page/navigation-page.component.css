@@ -1,13 +1,13 @@
-/* Set background color and text color for mat-toolbar with primary color */
+
 
 
 
 .mat-toolbar.mat-primary {
-  background-color: #1A237E; /* Adjust to your primary color */
-  color: white; /* Text color for toolbar items */
+  background-color: #1A237E; 
+  color: white; 
 }
 
-/* Adjust specific styles for elements inside mat-toolbar */
+
 img {
   width: 70px;
   height: 60px;
@@ -15,7 +15,7 @@ img {
 }
 
 a.mat-button {
-  color: white; /* Text color for links in mat-button style */
+  color: white; 
   text-decoration: none;
   margin-right: 20px;
 }
@@ -26,15 +26,15 @@ a.mat-button {
 
 .content {
   display: flex;
-  align-items: center; /* Center items vertically */
+  align-items: center; 
 }
 
 .content a.mat-button {
-  margin-right: 10px; /* Adjust spacing between buttons */
+  margin-right: 10px; 
 }
 
 button.mat-button {
-  color: white; /* Text color for buttons */
+  color: white; 
 }
 
 a{

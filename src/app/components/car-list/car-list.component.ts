@@ -10,15 +10,22 @@ import { UserService } from 'src/app/user.service';
 })
 export class CarListComponent implements OnInit{
 
-  carList: Car[] = [];
+  carList?: Car[] = [];
   constructor(private carService: CarService, public userService: UserService) { }
+  searchText?: string = '';
 
+  searchBar: string = '';
+  
+  onSearchTextEntered(searchValue: string) {
+  this.searchText = searchValue;
+  // console.log(this.searchText);
+  }
 
   ngOnInit(): void {
 
     this.carService.getAllCars().subscribe(tweets => {
       this.carList = tweets;
-      // console.log(this.carList)
+      console.log(this.carList)
     });
    
   }
@@ -28,5 +35,14 @@ export class CarListComponent implements OnInit{
     return !!localStorage.getItem('myCarsToken');
   }
 
+  onSubmit() {
+    this.carService.searchCoffee(this.searchBar).subscribe( result => {
+      console.log(result);
+      this.carList = result;
+    });
+  }
+
+
+  
 
 }

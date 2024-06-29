@@ -1,42 +1,36 @@
 <h1>Apex Cars</h1>
+
 <div class="image-container">
-    <img src="assets/img/pngtree-futuristic-cool-sports-car-illustration-background-picture-image_2252354.jpg" alt="Cool Image" class="cool-image">
-  </div>
+  <img src="assets/img/PNG image.jpeg" alt="Cool Image" class="cool-image">
+</div>
+
+<app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
+
 <div class="contentt" *ngIf="carList">
-<div class="content" *ngFor="let c of carList">
-   
-<mat-card class="example-card">
-    <mat-card-header>
-       
-        <mat-card-title>{{c.make}}</mat-card-title>
-        <mat-card-subtitle>{{c.model}}</mat-card-subtitle>
-    </mat-card-header>
-    <a [routerLink]="['/car', c.carId]">
-    <img mat-card-image src={{c.imgUrl}}>
-</a>
-    <mat-card-content>
-        <p>
-            COLOR: {{c.color}}
-            
-        </p>
-        <p>
-            City: {{c.city}}, {{c.state}}
-            
-        </p>
-        
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>PRICE: {{c.price}}</button>
-        
-        <!-- <button mat-button> {{c.u}}</button> -->
-    </mat-card-actions>
-</mat-card>
-
-</div>
-
-</div>
-<div *ngIf="userService.isLoggedIn()">
-    <div class="heading">
-        <button mat-raised-button color="primary" id="create" routerLink="/new">Create New Listing</button>
+  <div class="content" *ngFor="let c of carList">
+    <div *ngIf="searchText === '' || (c?.make?.toLowerCase() ?? '').includes(searchText?.toLowerCase() ?? '') || (c?.model?.toLowerCase() ?? '').includes(searchText?.toLowerCase() ?? '')">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{c?.make}}</mat-card-title>
+          <mat-card-subtitle>{{c?.model}}</mat-card-subtitle>
+        </mat-card-header>
+        <a [routerLink]="['/car', c?.carId]">
+          <img mat-card-image [src]="c?.imgUrl" alt="Car Image">
+        </a>
+        <mat-card-content class="custom-content">
+          <p style="color: #000000;">COLOR: {{c?.color}}</p>
+          <p style="color: #000000;">City: {{c?.city}}, {{c?.state}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <a [routerLink]="['/car', c?.carId]" class="button-link">PRICE: ${{c?.price}}</a>
+        </mat-card-actions>
+      </mat-card>
     </div>
+  </div>
+</div>
+
+<div *ngIf="userService.isLoggedIn()">
+  <div class="heading">
+    <button mat-raised-button color="primary" id="create" routerLink="/new">Create New Listing</button>
+  </div>
 </div>

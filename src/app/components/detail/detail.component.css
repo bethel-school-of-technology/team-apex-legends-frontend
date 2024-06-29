@@ -1,35 +1,102 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Center vertically */
-    padding: 20px;
-  }
-  
-  .detail-card {
-    max-width: 400px; /* Adjust the max-width as needed */
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  
-  .mat-card-actions {
-    display: flex;
-    justify-content: flex-end; /* Align button to the right */
-  }
-  
-  .mat-card-actions button {
-    color: white;
-  }
-  
-  .mat-card-actions button[color="primary"] {
-    background-color: #007bff; /* Bootstrap primary color, adjust as needed */
-  }
-  
-  .mat-card-actions button[color="primary"]:hover {
-    background-color: #0056b3; /* Darker shade of primary color */
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px); 
+  padding: 20px;
+  flex-direction: column; 
+}
+
+.detail-card {
+  transition: transform 0.2s ease-in-out; 
+  max-width: 600px; 
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  margin-bottom: 20px; 
+  z-index: 1; 
+}
+
+.detail-card {
+  transform: translateY(-5px); 
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.mat-card-actions .styled-link {
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.mat-card-actions .styled-link:hover {
+  background-color: #0056b3;
+}
+
+.description-container {
+  margin-bottom: 100px;
+  background-color: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.description {
+  color: aliceblue;
+  max-width: 600px; 
+  text-align: center;
+  padding: 20px;
+  font-size: 1.2em;
+  line-height: 1.5;
+}
+
+.styled-link {
+  color: white;
+  background-color: #007bff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight:500;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.styled-link:hover {
+  background-color: #0056b3;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+h3 {
+  text-align: center;
+  font-weight: 900;
+}
+
+mat-card img {
+  width: 100%;
+ 
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}

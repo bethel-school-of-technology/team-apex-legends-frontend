@@ -31,11 +31,11 @@ export class DetailComponent implements OnInit{
       
       this.userId = this.thisCar.userId;
 
-      // Ensure userId is populated before fetching user details
+      
       if (this.userId) {
         this.userService.getUserById(this.userId).subscribe((result) => {
           this.user = result;
-          console.log(this.user); // Assuming result is of type User
+          console.log(this.user); 
         });
       }
     });
