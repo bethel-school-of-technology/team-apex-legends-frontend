@@ -9,11 +9,12 @@ import { Observable } from 'rxjs';
 export class CarService {
 
 
-
-
+  weatherBaseURL: string = "http://api.weatherapi.com/v1/current.json";
+  weatherAPIKey: string = "142a8baab89f46b889820953243006";
   baseURL: string = "http://localhost:3006/api/car";
   tokenKey: string = "myCarsToken";
-
+  private city: string = '';
+  
   constructor(private http: HttpClient) { }
 
   getAllCars(): Observable<Car[]> {
@@ -52,5 +53,20 @@ updateCar(num: string, updatedCar: Car): Observable<Car> {
 searchCoffee(searchText: string): Observable<Car[]> {
   return this.http.get<Car[]>(this.baseURL + "?q=" + searchText);
 }
+
+getWeather(city: string): Observable<any> {
+  const url = `${this.weatherBaseURL}?key=${this.weatherAPIKey}&q=${city}&aqi=no`;
+  return this.http.get<any>(url);
+}
+
+
+
+  setCity(city: string) {
+    this.city = city;
+  }
+
+  getCity(): string {
+    return this.city;
+  }
 
 }

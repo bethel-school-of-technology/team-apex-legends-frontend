@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CarService } from 'src/app/car.service';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -14,9 +15,9 @@ export class SignInComponent implements OnInit{
 
   username: string = '';
   password: string = '';
+  city: string = '';
 
-
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private carService: CarService) { }
 
   ngOnInit() {
     const navigateTo = localStorage.getItem('navigateTo');
@@ -24,7 +25,7 @@ export class SignInComponent implements OnInit{
       localStorage.removeItem('navigateTo');
       setTimeout(() => {
         this.router.navigateByUrl(navigateTo);
-      }, 100);
+      }, 3000);
     }
   }
 
@@ -74,6 +75,9 @@ export class SignInComponent implements OnInit{
       (response: any) => {
         console.log('Login response:', response);
         window.alert('Successful Login');
+        this.carService.setCity(this.city);
+        localStorage.setItem('city', this.city);
+        console.log('City set to:', this.city);
         localStorage.setItem('navigateTo', '/car');
         window.location.reload();
       },

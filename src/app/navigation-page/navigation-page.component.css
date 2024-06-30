@@ -40,3 +40,27 @@ button.mat-button {
 a{
   font-weight: 550;
 }
+
+h4{
+  margin-left: 500px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.weather-data {
+  margin-top: 10px;
+  margin-left: 6px; 
+  margin-right: 16px; 
+}
+
+.current-temp {
+  font-size: 0.8em; 
+  font-weight:500; 
+  white-space: nowrap; 
+}
+
+p{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

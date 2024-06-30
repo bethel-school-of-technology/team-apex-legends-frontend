@@ -1,7 +1,10 @@
 <mat-toolbar color="primary">
   <a routerLink="/car" mat-button>Apex Cars</a>
   <img src="assets/img/PNG image.jpeg" alt="Cool Image">
-
+  
+  <div class="weather-data" *ngIf="city">
+    <p class="current-temp">Current Local Temp: {{weatherData.current.temp_f}}&deg;F</p>
+  </div>
 
   <div class="spacer"></div>
 
